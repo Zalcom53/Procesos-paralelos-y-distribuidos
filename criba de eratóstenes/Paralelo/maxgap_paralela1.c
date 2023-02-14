@@ -1,4 +1,4 @@
-%%writefile criba_1.c
+//%%writefile criba_1.c
 // NOMBRE: DANIEL ANTONIO QUIHUIS HERNANDEZ
 // EXPEDIENTE: 215207132
 
