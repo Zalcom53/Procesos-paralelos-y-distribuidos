@@ -1,4 +1,6 @@
 %%writefile criba_1.c
+// NOMBRE: DANIEL ANTONIO QUIHUIS HERNANDEZ
+// EXPEDIENTE: 215207132
 
 #include <stdio.h>
 #include <stdlib.h>

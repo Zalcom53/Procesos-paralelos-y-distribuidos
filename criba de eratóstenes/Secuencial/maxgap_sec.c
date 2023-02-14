@@ -1,9 +1,8 @@
-%%writefile criba_sec.c
-/*
-  Criba de Eratóthenes
-  programado por : José Alberto Leyva
-  15 de octubre de 2021
-*/
+// NOMBRE DEL ALUMNO:
+// Quihuis Hernandez Daniel Antonio 
+// EXPEDIENTE: 215207132
+
+
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -39,21 +38,33 @@ int main(int argc, char *argv[]){
     count = 0;
     for (i = 0; i < n-1; i++) 
         if (!marked[i]) 
-            count++;
- 
-    gettimeofday(&fin,0); // toma de tiempo final
+            count++;    
 
-    printf("PRIMOS = [");
+    /*printf("PRIMOS = [");
     for (i = 0; i < n-1; i++) 
         if (!marked[i]) 
             printf("%d,",i+2);
-    printf("]");
+    printf("]");*/
+
+    //  ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ Buscando el máximo GAP
+    int maximoGAP = 0;
+    int indice_primo = 1;     // primer primo es el 3
+    for (i = 2; i < n-1; i++) // empieza en el 4
+        if (!marked[i]){
+            if( i - indice_primo > maximoGAP )
+                maximoGAP = i - indice_primo;
+            indice_primo = i;
+        } 
+    //  ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+
+    gettimeofday(&fin,0); // toma de tiempo final
 
     long seconds = fin.tv_sec - inicio.tv_sec;
     long microseconds = fin.tv_usec - inicio.tv_usec;
     double diff_t = seconds + microseconds*1e-6;  
 
-    printf ("Hay %d números primos menores o iguales que %d\n", count, n);
+    printf ("\nHay %d números primos menores o iguales que %d\n", count, n);
+    printf("\nEL maximo gap es %d\n", maximoGAP);
     printf("\nTiempo =  %.10f \n",diff_t);  
  
     return 0;
